@@ -57,7 +57,7 @@
 
             <div class="logo">
                     <p align="center"><img src="<?php echo base_url(); ?>assets/img/psr.png" width="100">
-                <a href="<?php echo site_url('/dasbor'); ?>" class="simple-text">
+                <a href="<?php echo site_url('/dashboard'); ?>" class="simple-text">
                     PT.Sunan Ruber
                 </a>
 				<div style="font-size:12px;text-align:center">
@@ -124,6 +124,12 @@
                         <a href="<?php echo site_url('laporan/pesanan'); ?>">
                             <i class="ti-files"></i>
                             <p>Laporan Pesanan</p>
+                        </a>
+                    </li>
+                    <li class="<?php if ($this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'grafikPenjualanBarang') echo 'active'; ?>">
+                        <a href="<?php echo site_url('laporan/grafikPenjualanBarang'); ?>">
+                            <i class="ti-files"></i>
+                            <p>Grafik Pemesanan</p>
                         </a>
                     </li>
                 <?php

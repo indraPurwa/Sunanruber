@@ -71,5 +71,24 @@ class Laporan extends CI_Controller {
 			// 'data' => $data,
 		));
 	}
-	
+	public function grafikPenjualanBarang()
+	{
+		$tahun=NULL;
+		$barangs=[];
+		if ($this->input->post('aksi')=='tampil') {
+			$barangs=$this->db->query('select * from barang')->result_array();
+			$tahun = $this->input->post('tahun');
+		}
+		$tahuns = $this->db->query('select distinct year(p.time_created ) as tahun from id11232635_db_sunanruber.pesanan p order by p.time_created desc')->result_array();
+		$this->load->view('templates/admin_tpl', array (
+			'header' => 'Laporan ',
+			'content' => 'section/laporan/grafikPenjualanBarang',
+			'tahuns'=>$tahuns,
+			'tahun'=>$tahun,
+			'barangs'=>$barangs,
+			// 'tgl_awal' => $tgl_awal,
+			// 'tgl_akhir' => $tgl_akhir,
+			// 'data' => $data,
+		));
+	}
 }

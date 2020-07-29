@@ -16,13 +16,15 @@ class Pemesanan extends CI_Controller {
 	{
 		if ($this->session->userdata('pengguna')->level == 'Admin') {
 			$data = $this->db
-							->query('select a.*, b.tanggal, c.tgl_kirim,
+							->query('select a.*, b.tanggal, c.tgl_kirim, pa.nama_lengkap,
 								(select sum(b.subTotal) from pesanan_detail as b where a.id_pesanan=b.id_pesanan) as total
 							from pesanan as a
 								left join pembayaran as b	
 									on a.id_pesanan=b.id_pesanan
 								left join pengiriman as c
 									on a.id_pesanan=c.id_pesanan
+								join pengguna pa
+									on pa.id_pengguna=a.id_pengguna
 								')
 							->result_array();
 		}
@@ -37,13 +39,15 @@ class Pemesanan extends CI_Controller {
 		}
 		elseif ( ($this->session->userdata('pengguna')->level == 'Gudang') ) {
 			$data = $this->db
-							->query('select a.*, b.tanggal, c.tgl_kirim,
+							->query('select a.*, b.tanggal, c.tgl_kirim, pa.nama_lengkap,
 								(select sum(b.subTotal) from pesanan_detail as b where a.id_pesanan=b.id_pesanan) as total
 							 from pesanan as a
 								left join pembayaran as b	
 									on a.id_pesanan=b.id_pesanan
 								left join pengiriman as c
 									on a.id_pesanan=c.id_pesanan
+								join pengguna pa
+								on pa.id_pengguna=a.id_pengguna
 								')
 							->result_array();
 		}

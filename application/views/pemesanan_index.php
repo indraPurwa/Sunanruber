@@ -21,6 +21,11 @@
 							<th>No</th>
 							<th>ID Pesanan</th>
 							<th>Waktu Pesan</th>
+							<?php
+								if ($this->session->userdata('pengguna')->level == 'Admin' || $this->session->userdata('pengguna')->level == 'Gudang') {
+									echo '<th>Nama</th>';
+								}
+							?>
 							<th>Alamat Kirim</th>
 							<th>Total</th>
 							<th>Status</th>
@@ -44,8 +49,11 @@
 							echo '<tr>
 									<td>'.($no).'</td>
 									<td>'.date('Ymd',strtotime($value['time_created'])).$captionOrderID.'</td>
-									<td>'.date('d-m-Y H:i:s',strtotime($value['time_created'])).'</td>
-									<td>'.$value['alamat_kirim'].'</td>
+									<td>'.date('d-m-Y H:i:s',strtotime($value['time_created'])).'</td>';
+							if ($this->session->userdata('pengguna')->level == 'Admin' || $this->session->userdata('pengguna')->level == 'Gudang') {
+								echo '<td>'.($value['nama_lengkap']).'</td>';
+							}
+							echo '<td>'.$value['alamat_kirim'].'</td>
 									<td>'.rupiah($value['total']).'</td>
 									<td>'.$value['status'].'</td>';
 									if ($this->session->userdata('pengguna')->level == 'Admin' || $this->session->userdata('pengguna')->level == 'Gudang') {

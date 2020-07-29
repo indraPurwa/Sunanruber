@@ -80,3 +80,12 @@ if ( ! function_exists('create_orderid'))
 		return date('Ymd',strtotime($date)).$captionOrderID;
 	}
 }
+
+if ( ! function_exists('getColor'))
+{
+	function getColor($id)
+	{
+		$color=['#68B3C8','#F3BB45','#EB5E28','#7AC29A','#7A9E9F','rgba(104, 179, 200, 0.8)','rgba(122, 194, 154, 0.8)','Gray','Maroon','Olive','Green','Purple','Teal','Navy'];
+		return $color[$id];
+	}
+}
