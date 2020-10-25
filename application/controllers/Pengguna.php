@@ -11,11 +11,12 @@ class Pengguna extends CI_Controller {
             redirect('auth');
             exit();
         }
+		$this->lang->load('user', $this->session->userdata('language'));
 	}
 	public function index()
 	{
 		$this->load->view('templates/admin_tpl', array (
-			'header' => 'Data Pengguna',
+			'header' => $this->lang->line('header'),
 			'content' => 'pengguna_index',
 			'data' => $this->db->get('pengguna'),
 		));

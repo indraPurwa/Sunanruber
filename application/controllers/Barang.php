@@ -9,11 +9,14 @@ class Barang extends CI_Controller {
         else {
             redirect('auth');
             exit();
-        }
+		}
+		
+		$this->lang->load('barang', $this->session->userdata('language'));
 	}
 	
 	public function index()
 	{
+
 		$data = $this->db
 						->select ('
 							a.id_barang
@@ -32,7 +35,7 @@ class Barang extends CI_Controller {
 						->get();
 		
 		$this->load->view('templates/admin_tpl', array (
-			'header' => 'Barang',
+			'header' => $this->lang->line('header'),
 			'content' => 'barang_index',
 			'data' => $data,
 		));
@@ -90,7 +93,7 @@ class Barang extends CI_Controller {
 		$id = '';
 
 		$this->load->view('templates/admin_tpl', array (
-			'header' => 'Form Barang',
+			'header' => $this->lang->line('header_form'),
 			'content' => 'barang_form',
 			'data' => $data,
 			'action' => $action,
@@ -142,7 +145,7 @@ class Barang extends CI_Controller {
 		$action = 'update';
 		$id = $id;
 		$this->load->view('templates/admin_tpl', array (
-			'header' => 'Form Barang',
+			'header' => $this->lang->line('header_form'),
 			'content' => 'barang_form',
 			'data' => $data,
 			'action' => $action,

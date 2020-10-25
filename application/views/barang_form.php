@@ -9,13 +9,13 @@
 				<div class="row">
 					<div class="col-sm-3">
 						<div class="form-group">
-							<label>No. Barang</label>
+							<label><?= $this->lang->line('col_no')?></label>
 							<input type="text" class="form-control border-input" name="id_barang" value="<?php echo $data->id_barang; ?>" readonly>
 						</div>
 					</div>
                     <div class="col-sm-9">
 						<div class="form-group">
-							<label>Nama Barang</label>
+							<label><?= $this->lang->line('col_nama')?></label>
 							<input type="text" class="form-control border-input" name="nama" placeholder="Nama Barang" value="<?php echo $data->nama; ?>">
 						</div>
 					</div>
@@ -25,25 +25,25 @@
 				<div class="row">
 					<div class="col-sm-3">
 						<div class="form-group">
-							<label>Jenis Karet</label>
+							<label><?= $this->lang->line('col_jenis')?></label>
 							<input type="text" class="form-control border-input" name="jenis_karet" placeholder="Jenis Karet" value="<?php echo ucfirst($data->jenis_karet); ?>">
 						</div>
 					</div>                
 					<div class="col-sm-3">
 						<div class="form-group">
-							<label>Jumlah</label>
+							<label><?= $this->lang->line('col_jumlah')?></label>
 							<input type="number" class="form-control border-input" name="jumlah" placeholder="Jumlah" value="<?php echo ucfirst($data->jumlah); ?>">
 						</div>
 					</div>
 					<div class="col-sm-3">
 						<div class="form-group">
-							<label>Jenis Packing</label>
+							<label><?= $this->lang->line('col_jenis_packing')?></label>
 							<input type="text" class="form-control border-input" name="jenis_packing" placeholder="Jenis Packing" value="<?php echo $data->jenis_packing; ?>">
 						</div>
 					</div>
 					<div class="col-sm-3">
 						<div class="form-group">
-							<label>Harga</label>
+							<label><?= $this->lang->line('harga')?></label>
 						<input type="number" class="form-control border-input" name="harga" placeholder="Harga" value="<?php echo $data->harga; ?>">
 						</div>
 					</div>                    
@@ -51,13 +51,13 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="form-group">
-							<label>Stuff Date</label>
+							<label><?= $this->lang->line('col_stuff_date')?></label>
 							<input type="date" class="form-control border-input" name="stuff_date" placeholder="Stuff Date" value="<?php echo $data->stuff_date; ?>">
 						</div>
 					</div>
 					<div class="col-sm-4">
 						<div class="form-group">
-							<label>Rencana Stuff</label>
+							<label><?= $this->lang->line('col_rencata')?></label>
                             <select name="rencana_stuff" class="form-control border-input" required>
                               <option value="<?php echo $data->rencana_stuff; ?>" selected="selected"><?php echo $data->rencana_stuff; ?></option>
                               <option value="SIANG">SIANG</option>
@@ -68,14 +68,14 @@
 					</div>
                     <div class="col-sm-4">
 						<div class="form-group">
-							<label>Stock</label>
+							<label><?= $this->lang->line('col_stock')?></label>
 							<input type="number" class="form-control border-input" name="stock" placeholder="Stock" value="<?php echo $data->stock; ?>" >
 						</div>
 					</div>
 				</div>
 				<div class="text-left">
-					<button type="submit" name="save" value="1" class="btn btn-info btn-fill btn-wd" style="margin-bottom:10px">Simpan</button>
-					<a href="<?=site_url('barang')?>" class="btn btn-warning btn-fill btn-wd" style="margin-bottom:10px">Kembali</a>
+					<button type="submit" name="save" value="1" class="btn btn-info btn-fill btn-wd" style="margin-bottom:10px"><?= $this->lang->line('button_simpan')?></button>
+					<a href="<?=site_url('barang')?>" class="btn btn-warning btn-fill btn-wd" style="margin-bottom:10px"><?= $this->lang->line('button_kembali')?></a>
 				</div>
 				<div class="clearfix"></div>
 			</form>

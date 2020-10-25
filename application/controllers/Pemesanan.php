@@ -9,7 +9,9 @@ class Pemesanan extends CI_Controller {
         else {
             redirect('auth');
             exit();
-        }
+		}
+		$this->lang->load('pemesanan', $this->session->userdata('language'));
+		
 	}
 	
 	public function index()

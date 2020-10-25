@@ -6,21 +6,21 @@
 			<div class="alert alert-warning"><?php echo $this->session->flashdata('save_message'); ?></div>
 			<?php endif; ?>
 
-			<a href="<?php echo site_url('/barang/tambah'); ?>"><button class="btn btn-default">Tambah Data Barang</button></a>
+			<a href="<?php echo site_url('/barang/tambah'); ?>"><button class="btn btn-default"><?= $this->lang->line('button_add')?></button></a>
 			<br><br>
 			<table class="table datatables table-striped">
 				<thead>
 					<tr>
 					<th>No.</th>
-			<th>ID Barang.</th>
-						<th>Nama Barang.</th>
-						<th>Jenis Karet.</th>
-						<th>Jumlah.</th>
-						<th>Jenis Packing.</th>
-                        <th>Stuff Date</th>
-						<th>Rencana Stuff</th>
-						<td>Stock</th>
-						<th>Aksi</th>
+					<th><?= $this->lang->line('col_id')?></th>
+					<th><?= $this->lang->line('col_nama')?></th>
+					<th><?= $this->lang->line('col_jenis')?></th>
+					<th><?= $this->lang->line('col_jumlah')?></th>
+					<th><?= $this->lang->line('col_jenis_packing')?></th>
+					<th><?= $this->lang->line('col_stuff_date')?></th>
+					<th><?= $this->lang->line('col_rencata')?></th>
+					<th><?= $this->lang->line('col_stock')?></th>
+					<th><?= $this->lang->line('col_aksi')?></th>
 					</tr>
 				</thead>
 				<tbody>

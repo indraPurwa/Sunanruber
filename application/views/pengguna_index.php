@@ -5,21 +5,21 @@
 			<div class="alert alert-warning"><?php echo $this->session->flashdata('save_message'); ?></div>
 			<?php endif; ?>
 			
-			<a href="<?php echo site_url('/pengguna/tambah'); ?>"><button class="btn btn-default">Tambah Pengguna</button></a>
+			<a href="<?php echo site_url('/pengguna/tambah'); ?>"><button class="btn btn-default"><?= $this->lang->line('button_add') ?></button></a>
 			<br><br>
 			<table class="table datatables table-striped">
 				<thead>
 					<tr>
 						<th>No</th>
-						<th>Nama Pengguna</th>
+						<th><?= $this->lang->line('col_nama')?></th>
 						<th>Username</th>
 						<th>Email</th>
 						<th>No HP</th>
-						<th>Alamat</th>
-                        <th>Asal Instansi</th>
-                        <th>Alamat Instansi</th>
+						<th><?= $this->lang->line('col_alamat')?></th>
+                        <th><?= $this->lang->line('col_instansi')?></th>
+                        <th><?= $this->lang->line('col_instansi2')?></th>
                         <th>Level</th>
-						<th>Aksi</th>
+						<th><?= $this->lang->line('col_aksi')?></th>
 					</tr>
 				</thead>
 				<tbody>

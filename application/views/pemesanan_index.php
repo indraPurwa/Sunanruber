@@ -9,7 +9,7 @@
 			if ($this->session->userdata('pengguna')->level == 'Pelanggan') 
 			{
 				?>
-					<a href="<?php echo site_url('/pemesanan/tambah'); ?>"><button class="btn btn-default">Tambah Data Pemesanan</button></a>
+					<a href="<?php echo site_url('/pemesanan/tambah'); ?>"><button class="btn btn-default"><?php echo $this->lang->line('button_add'); ?></button></a>
 					<br><br>
 				<?php
 			}
@@ -19,24 +19,25 @@
 					<thead>
 						<tr>
 							<th>No</th>
-							<th>ID Pesanan</th>
-							<th>Waktu Pesan</th>
+
+							<th><?= $this->lang->line('col_id')?></th>
+							<th><?= $this->lang->line('col_waktu')?></th>
 							<?php
 								if ($this->session->userdata('pengguna')->level == 'Admin' || $this->session->userdata('pengguna')->level == 'Gudang') {
-									echo '<th>Nama</th>';
+									echo '<th>'.$this->lang->line('col_nama').'</th>';
 								}
 							?>
-							<th>Alamat Kirim</th>
-							<th>Total</th>
-							<th>Status</th>
+							<th><?= $this->lang->line('col_alamat')?></th>
+							<th><?= $this->lang->line('col_total')?></th>
+							<th><?= $this->lang->line('col_status')?></th>
 
 							<?php
 								if ($this->session->userdata('pengguna')->level == 'Admin' || $this->session->userdata('pengguna')->level == 'Gudang') {
-									echo '<th>Tgl Bayar</th>';
-									echo '<th>Tgl Kirim</th>';
+									echo '<th>'.$this->lang->line('col_bayar').'</th>';
+									echo '<th>'.$this->lang->line('col_kirim').'</th>';
 								}
 							?>
-							<th>Aksi</th>
+							<th><?= $this->lang->line('col_aksi')?></th>
 						</tr>
 					</thead>
 					<tbody>

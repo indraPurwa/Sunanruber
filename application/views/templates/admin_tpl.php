@@ -45,6 +45,8 @@
 <body>
 
 <?php
+$this->lang->load('menu', $this->session->userdata('language'));
+
 //TODO print data session
 // echo '<pre>'; print_r($this->session->userdata()); echo '</pre>';
 // echo $this->session->userdata('pengguna')->level;
@@ -62,7 +64,7 @@
                 </a>
 				<div style="font-size:12px;text-align:center">
 					<a href="<?php echo site_url('/tentang'); ?>">
-						Tentang PT.Sunan Ruber
+                    <?= $this->lang->line('tentang') ?> PT.Sunan Ruber
 					</a>
 				</div>
             </div>
@@ -75,13 +77,13 @@
                     <li class="<?php if ($this->uri->segment(1) == 'barang') echo 'active'; ?>">
                         <a href="<?php echo site_url('/barang'); ?>">
                             <i class="ti-briefcase"></i>
-                            <p>Barang</p>
+                            <p><?= $this->lang->line('barang') ?></p>
                         </a>
                     </li>
                     <li class="<?php if ($this->uri->segment(1) == 'pemesanan') echo 'active'; ?>">
                         <a href="<?php echo site_url('/pemesanan'); ?>">
                             <i class="ti-truck"></i>
-                            <p>Pemesanan</p>
+                            <p><?= $this->lang->line('pemesanan') ?></p>
                         </a>
                     </li>
                     <!-- <li class="<?php if ($this->uri->segment(1) == 'pengiriman') echo 'active'; ?>">
@@ -93,7 +95,7 @@
                     <li class="<?php if ($this->uri->segment(1) == 'pengguna') echo 'active'; ?>">
                         <a href="<?php echo site_url('/pengguna'); ?>">
                             <i class="ti-user"></i>
-                            <p>Data Pengguna</p>
+                            <p><?= $this->lang->line('pengguna') ?></p>
                         </a>
                     </li>
                 <?php
@@ -105,7 +107,7 @@
                     <li class="<?php if ($this->uri->segment(1) == 'pemesanan') echo 'active'; ?>">
                         <a href="<?php echo site_url('/pemesanan'); ?>">
                             <i class="ti-truck"></i>
-                            <p>Pemesanan</p>
+                            <p><?= $this->lang->line('pemesanan') ?></p>
                         </a>
                     </li>
                 <?php
@@ -117,19 +119,20 @@
                     <li class="<?php if ($this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'barang') echo 'active'; ?>">
                         <a target="_blank" href="<?php echo site_url('laporan/barang'); ?>">
                             <i class="ti-files"></i>
-                            <p>Laporan Barang</p>
+                            <p><?= $this->lang->line('laporan_barang') ?></p>
+                            
                         </a>
                     </li>
                     <li class="<?php if ($this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'pesanan') echo 'active'; ?>">
                         <a href="<?php echo site_url('laporan/pesanan'); ?>">
                             <i class="ti-files"></i>
-                            <p>Laporan Pesanan</p>
+                            <p><?= $this->lang->line('laporan_pesanan') ?></p>
                         </a>
                     </li>
                     <li class="<?php if ($this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'grafikPenjualanBarang') echo 'active'; ?>">
                         <a href="<?php echo site_url('laporan/grafikPenjualanBarang'); ?>">
                             <i class="ti-files"></i>
-                            <p>Grafik Pemesanan</p>
+                            <p><?= $this->lang->line('grafik_pemesanan') ?></p>
                         </a>
                     </li>
                 <?php
@@ -147,7 +150,7 @@
                     <li class="<?php if ($this->uri->segment(1) == 'pemesanan') echo 'active'; ?>">
                         <a href="<?php echo site_url('/pemesanan'); ?>">
                             <i class="ti-truck"></i>
-                            <p>Pemesanan</p>
+                            <p><?= $this->lang->line('pemesanan') ?></p>
                         </a>
                     </li>
                 <?php
@@ -155,9 +158,10 @@
                 ?>
 
 				<li>
-                    <a href="<?php echo site_url('/auth/logout'); ?>">
+                    <a href="<?php echo site_url('/Auth/logout'); ?>">
                         <i class="ti-power-off"></i>
-                        <p>Logout</p>
+                        <p><?= $this->lang->line('keluar') ?></p>
+                        
                     </a>
                 </li>
             </ul>
@@ -186,9 +190,20 @@
 								<b class="caret"></b>
                               </a>
                               <ul class="dropdown-menu">
-                                <li><a href="<?php echo site_url('/auth/profil'); ?>">Profil Pengguna</a></li>
-                                <li><a href="<?php echo site_url('/auth/password'); ?>">Ubah Password</a></li>
-                                <li><a href="<?php echo site_url('/auth/logout'); ?>">Logout</a></li>
+                                <li><a href="<?php echo site_url('/Auth/profil'); ?>"><?= $this->lang->line('profil_pengguna') ?></a></li>
+                                <li><a href="<?php echo site_url('/Auth/password'); ?>"><?= $this->lang->line('ubah_password') ?></a></li>
+                                <li><a href="<?php echo site_url('/Auth/logout'); ?>"><?= $this->lang->line('keluar') ?></a></li>
+                              </ul>
+                        </li>
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="fa fa-language"></i>
+                                <span><?= $this->session->userdata('language');?></span>
+								<b class="caret"></b>
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="<?php echo site_url('/Auth/language/english'); ?>">English</a></li>
+                                <li><a href="<?php echo site_url('/Auth/language/indonesia'); ?>">Indonesia</a></li>
                               </ul>
                         </li>
                     </ul>

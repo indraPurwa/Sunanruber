@@ -24,6 +24,7 @@ class Auth extends CI_Controller {
 				# simpan session untuk simpan data pengguna
 				$this->session->set_userdata('pengguna', $src->row());
 				$this->session->set_userdata('status_login', 1);
+				$this->session->set_userdata('language', 'indonesia');
 				// $plgn = strtoupper($this->session->userdata('pengguna')->id_user);
 				// $src2 = $this->db->get_where('pelanggan', $plgn);
 				// $this->session->set_userdata('pelanggan', $src2->row());
@@ -200,6 +201,19 @@ class Auth extends CI_Controller {
 			'header' => 'Ubah Password',
 			'content' => 'auth_password',
 		));
+	}
+
+	public function language($language)
+	{
+		$this->session->set_userdata('language', $language);
+		
+		redirect($_SERVER['HTTP_REFERER']);
+	}
+	public function cek()
+	{
+		echo '<pre>';
+		print_r($this->session->userdata());
+		echo '</pre>';
 	}
 	
 }

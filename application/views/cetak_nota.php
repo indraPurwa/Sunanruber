@@ -11,6 +11,10 @@
         }
     </style>
 </head>
+<?php
+$this->lang->load('pemesanan', $this->session->userdata('language'));
+
+?>
 <body onload="window.print();">
     <table>
         <tr>
@@ -30,29 +34,29 @@
                     // print_r($pesanan);
 
     ?>
-	<center><h4 style="margin:0; padding:0;">NOTA PEMESANAN</h4></center>
+	<center><h4 style="margin:0; padding:0;"><?= $this->lang->line('header_nota') ?></h4></center>
 
     <table id="table-info" style="width:100%;" >
         <tr>
-            <th>No Pesanan</th>
+            <th><?= $this->lang->line('col_no') ?></th>
             <td>:</td>
             <td><?=create_orderid($pesanan->time_created, $pesanan->id_pesanan)?></td>
             <td style="min-width:10%"></td>
-            <th>Alamat Kirim</th>
+            <th><?= $this->lang->line('col_alamat') ?></th>
             <td>:</td>
             <td><?=$pesanan->alamat_kirim?></td>
         </tr>
         <tr>
-            <th>Tanggal Pesan</th>
+            <th><?= $this->lang->line('tgl_pesan') ?></th>
             <td>:</td>
             <td><?=date('d-m-Y H:i:s', strtotime($pesanan->time_created))?></td>
             <td></td>
-            <th>Tanggal Pembayaran</th>
+            <th><?= $this->lang->line('tgl_bayar') ?></th>
             <td>:</td>
             <td><?=date('d-m-Y', strtotime($pesanan->tanggal))?></td>
         </tr>
         <tr>
-            <th>Pemesan</th>
+            <th><?= $this->lang->line('pemesan') ?></th>
             <td>:</td>
             <td><?=$pesanan->nama_lengkap?></td>
             <td></td>
@@ -66,9 +70,9 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>Nama Barang</th>
-                <th>Harga</th>
-                <th>Jumlah</th>
+                <th><?= $this->lang->line('col_nama_barang') ?></th>
+                <th><?= $this->lang->line('harga') ?></th>
+                <th><?= $this->lang->line('jumlah') ?></th>
                 <th>Sub Total</th>
             </tr>
         </thead>
